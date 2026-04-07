@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { getRodById, rods } from '../data/rods'
 import { FlyRodSvg } from '../components/FlyRodSvg'
+import { Seo } from '../components/Seo'
 
 export const Route = createFileRoute('/rod/$rodId')({
   component: RodDetailPage,
@@ -16,6 +17,37 @@ function RodDetailPage() {
 
   return (
     <div className="pt-24 pb-24 px-6">
+      <Seo
+        title={`${rod.name} — ${rod.series}`}
+        description={`${rod.description} ${rod.length}, ${rod.lineWeight}, ${rod.material}. $${rod.price.toLocaleString()}.`}
+        canonical={`/rod/${rod.id}`}
+        type="product"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: `Trout Trek ${rod.name}`,
+          description: rod.description,
+          brand: { '@type': 'Brand', name: 'Trout Trek' },
+          category: 'Sporting Goods > Fishing > Fly Fishing > Fly Rods',
+          material: rod.material,
+          url: `https://www.trout-trek.com/rod/${rod.id}`,
+          image: 'https://www.trout-trek.com/og-image.png',
+          offers: {
+            '@type': 'Offer',
+            price: rod.price,
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/PreOrder',
+            seller: { '@type': 'Organization', name: 'Trout Trek' },
+          },
+          additionalProperty: [
+            { '@type': 'PropertyValue', name: 'Length', value: rod.length },
+            { '@type': 'PropertyValue', name: 'Line Weight', value: rod.lineWeight },
+            { '@type': 'PropertyValue', name: 'Rod Weight', value: rod.weight },
+            { '@type': 'PropertyValue', name: 'Pieces', value: `${rod.pieces}` },
+            { '@type': 'PropertyValue', name: 'Action', value: rod.action },
+          ],
+        }}
+      />
       <div className="max-w-5xl mx-auto">
         {/* Breadcrumb */}
         <nav className="mb-8 animate-fade-in">

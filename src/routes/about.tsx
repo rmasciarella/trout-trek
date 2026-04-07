@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { FlyRodSvg } from '../components/FlyRodSvg'
+import { Seo } from '../components/Seo'
 
 export const Route = createFileRoute('/about')({
   component: AboutPage,
@@ -8,6 +9,18 @@ export const Route = createFileRoute('/about')({
 function AboutPage() {
   return (
     <div className="pt-24 pb-24">
+      <Seo
+        title="Our Story"
+        description="Trout Trek started in the White Mountains of New Hampshire with a block of Tonkin cane and a hand plane. Learn about our philosophy, materials, and process."
+        canonical="/about"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'AboutPage',
+          name: 'About Trout Trek',
+          description: 'The story behind Trout Trek handcrafted fly rods.',
+          url: 'https://www.trout-trek.com/about',
+        }}
+      />
       {/* Hero */}
       <section className="px-6 mb-24">
         <div className="max-w-4xl mx-auto text-center">

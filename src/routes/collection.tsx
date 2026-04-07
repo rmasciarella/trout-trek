@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { RodCard } from '../components/RodCard'
+import { Seo } from '../components/Seo'
 import { rods } from '../data/rods'
 
 export const Route = createFileRoute('/collection')({
@@ -15,6 +16,18 @@ function CollectionPage() {
 
   return (
     <div className="pt-24 pb-24 px-6">
+      <Seo
+        title="Collection"
+        description="Browse our full collection of handcrafted fly fishing rods. Bamboo, fiberglass, and hybrid rods built one at a time in the White Mountains of New Hampshire."
+        canonical="/collection"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: 'Trout Trek Rod Collection',
+          description: 'Handcrafted fly fishing rods — bamboo, fiberglass, and hybrid.',
+          url: 'https://www.trout-trek.com/collection',
+        }}
+      />
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

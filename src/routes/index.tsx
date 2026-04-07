@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { Logo } from '../components/Logo'
 import { RodCard } from '../components/RodCard'
 import { FlyRodSvg } from '../components/FlyRodSvg'
+import { Seo } from '../components/Seo'
 import { rods } from '../data/rods'
 
 export const Route = createFileRoute('/')({
@@ -13,6 +14,7 @@ function HomePage() {
 
   return (
     <>
+      <Seo canonical="/" />
       {/* ── Hero ── */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
         {/* Background decoration */}
