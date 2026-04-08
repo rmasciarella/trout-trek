@@ -31,7 +31,7 @@ function RodDetailPage() {
           category: 'Sporting Goods > Fishing > Fly Fishing > Fly Rods',
           material: rod.material,
           url: `https://www.trout-trek.com/rod/${rod.id}`,
-          image: 'https://www.trout-trek.com/og-image.png',
+          image: 'https://www.trout-trek.com/og-image-v2.png',
           offers: {
             '@type': 'Offer',
             price: rod.price,

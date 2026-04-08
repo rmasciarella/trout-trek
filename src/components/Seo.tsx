@@ -13,7 +13,7 @@ const BASE_URL = 'https://www.trout-trek.com'
 const DEFAULT_TITLE = 'Trout Trek — Handcrafted Fly Rods'
 const DEFAULT_DESC =
   'Handcrafted fly fishing rods built with heritage techniques and modern precision. Bamboo, fiberglass, and hybrid rods from the White Mountains, NH.'
-const DEFAULT_OG = `${BASE_URL}/og-image.png`
+const DEFAULT_OG = `${BASE_URL}/og-image-v2.png`
 
 export function Seo({
   title,
